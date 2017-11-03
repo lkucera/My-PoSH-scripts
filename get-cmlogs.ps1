@@ -1,7 +1,9 @@
-﻿function read-CMLogsFull
+﻿function get-CMLogsFull
 {
+    [cmdletbinding()]
     param(
-            [string]$filePath = "C:\windows\ccm\Logs\AlternateHandler.log"
+        [parameter(ValueFromPipeline)]
+        [string]$filePath = "C:\windows\ccm\Logs\AlternateHandler.log"
     )
 
     $file = gc $filePath
@@ -15,7 +17,7 @@
 
 $file | % {
 
-    if( $si/$diverder -eq [math]::Truncate($si/$diverder) ){Write-Progress -Activity "Processing  $si / $linecount" -Status "Retrieving Collection data" -PercentComplete (($si / $linecount) * 100)}
+    if( $si/$diverder -eq [math]::Truncate($si/$diverder) ){Write-Progress -Activity "Processing  $si / $linecount" -Status "Loading logfile $filePath" -PercentComplete (($si / $linecount) * 100)}
     
     #split to content(message) and data
 
@@ -56,4 +58,4 @@ $file | % {
 }
 }
 
-read-CMLogsFull
+get-CMLogsFull
