@@ -19,3 +19,9 @@ wsusApplication.psm1
   - Approve-WSUSApplicationDeployment
 
 Powershell module with funcition for handing Application imported to WSUS using SCUP
+
+------
+get-cmlogs.ps1
+  - get-CMLogsFull
+
+Powershell function for readinf SCCM logs and return them as object, it deals with multiline logs and include all informations, datetime is however returned as "as writen" in log as I didnt find it usefull to retain timezone (plus there is conversion issue)
