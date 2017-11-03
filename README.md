@@ -25,6 +25,7 @@ get-cmlogs.ps1
   - get-CMLogsFull
 
 Examples:
+
 gci 'C:\windows\ccm\LOGS\' -exclode "*-*" | get-CMLogsFull | ? ($_.datetime -gt ((get-date) - (New-TimeSpan -Minutes 10)))  |ft datetime,component,message
 
 Powershell function for readinf SCCM logs and return them as object, it deals with multiline logs and include all informations, datetime is however returned as "as writen" in log as I didnt find it usefull to retain timezone (plus there is conversion issue)
