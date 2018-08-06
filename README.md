@@ -28,4 +28,4 @@ Examples:
 
 gci 'C:\windows\ccm\LOGS\*' -Exclude "*-*","scc*","scn*" | get-CMLogsFull | ? {$_.datetime -gt (get-date).AddMinutes(-10)}  |ft datetime,component,message
 
-Powershell function for readinf SCCM logs and return them as object, it deals with multiline logs and include all informations, datetime is however returned as "as writen" in log as I didnt find it usefull to retain timezone (plus there is conversion issue)
+Powershell function for read SCCM logs and return them as object, it deals with multiline logs and include all informations, datetime is however returned as "as writen" in log as I didnt find it usefull to retain timezone (plus there is conversion issue)
